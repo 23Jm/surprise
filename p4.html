@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 4 - Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: white;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .line {
+            font-size: 2rem;
+            color: #0044cc;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        #congratulations-line {
+            opacity: 0;
+            font-size: 2rem;
+            color: #0044cc;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .gif-container {
+            width: 50%; /* Adjust the width of the GIF */
+            max-width: 300px; /* Set a maximum width */
+            margin-top: 20px;
+        }
+
+        /* Heart particle style */
+        .heart {
+            background-color: red;
+            display: inline-block;
+            height: 30px;
+            margin: 0 10px;
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            background-color: red;
+            border-radius: 50%;
+            height: 30px;
+            position: absolute;
+            width: 30px;
+        }
+
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 15px;
+            top: 0;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% {
+                transform: translate(-50%, 0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50vh) scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(-50%, -100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Pulse animation to create a slight grow and shrink effect */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="line" id="congratulations-line" style="margin-bottom: 10px;">
+        Congratulations! 🎊 You’re now promoted from <span class="highlight">Bro</span> to my <span class="highlight">Favorite ❤️</span>
+    </div>
+   
+    <!-- Adjusted GIF container size -->
+    <div class="gif-container">
+        <div class="tenor-gif-embed" data-postid="10573541433448164524" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/cosytales-peek-a-boo-peek-peeking-hiding-gif-10573541433448164524">Cosytales Peek A Boo Sticker</a> from 
+            <a href="https://tenor.com/search/cosytales-stickers">Cosytales Stickers</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <!-- Heart particles -->
+    <script>
+        function createHeartParticle() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}%`; // Random position
+            heart.style.animationDuration = `${Math.random() * 2 + 4}s`; // Random animation duration
+            document.body.appendChild(heart);
+            
+            // Apply the floating animation
+            heart.style.animation = `float ${Math.random() * 2 + 4}s ease-in forwards`;
+            
+            // Remove the heart after the animation ends
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Create heart particles every 200ms
+        setInterval(createHeartParticle, 200);
+
+        // Animate the line with a fade-in effect after the page loads
+        window.onload = function() {
+            const line = document.getElementById('congratulations-line');
+            line.style.opacity = 1;
+        };
+    </script>
+</body>
+</html>

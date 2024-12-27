@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3 - Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ADD8E6; /* Light blue background */
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .line {
+            opacity: 0;
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #0044cc;
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.8);
+        }
+
+        #next-message {
+            opacity: 0;
+            font-size: 1.5rem;
+            color: #00356d;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #click-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00356d;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        #click-button:hover {
+            background-color: #00356d;
+        }
+    </style>
+</head>
+<body>
+    <div class="line" style="margin-bottom: 10px;">Wait, I have some good news for you... 💬🎉</div>
+    <div id="next-message" style="margin-bottom: 10px;">Get ready for something amazing! ✨🍀</div>
+    <button id="click-button" style="margin-bottom: 10px;">Click here to hear 🎧</button>
+
+    <script>
+        gsap.to(".line", { opacity: 1, duration: 1 });
+        setTimeout(function() {
+            gsap.to("#next-message", { opacity: 1, duration: 1, ease: "ease-in-out" });
+        }, 1500);
+
+        setTimeout(function() {
+            gsap.to("#click-button", { opacity: 1, duration: 1, ease: "ease-in-out" });
+        }, 2500);
+
+        document.getElementById("click-button").addEventListener("click", function() {
+            window.location.href = "p4.html"; 
+        });
+    </script>
+</body>
+</html>

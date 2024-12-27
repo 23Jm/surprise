@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 - Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ADD8E6; /* Light blue background */
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .line {
+            opacity: 0;
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #0044cc; /* Darker blue text color */
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.8);
+        }
+
+        .highlight {
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        #cake {
+            max-width: 300px;
+            margin-top: 20px;
+            cursor: pointer;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        #cake-message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #ff4081;
+            font-weight: bold;
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="line" style="margin-bottom: 20px;">Surprise! It's your special day! 🎉🎂</div>
+    <div class="line" style="margin-bottom: 20px; font-size: 40px;">Happy Birthday! 🎉🎂</div>
+    <img src="cake.png" alt="Birthday Cake" id="cake" style="margin-bottom: 10px;">
+    <div id="cake-message">Take a piece of cake 🍰, come on, click the cake!</div>
+
+    <script>
+        // Animate the text lines (fade-in)
+        gsap.to(".line", {
+            opacity: 1,
+            duration: 1.5,
+            stagger: 1
+        });
+
+        // Animate the cake image (bounce effect)
+        gsap.from("#cake", {
+            scale: 0.5,
+            duration: 1.5,
+            delay: 1.5,
+            ease: "bounce.out"
+        });
+
+        // Animate the cake message (fade-in)
+        gsap.to("#cake-message", {
+            opacity: 1,
+            duration: 1.5,
+            delay: 1.5,
+            ease: "ease-in-out"
+        });
+
+        // Cake click animation with redirect to the next page
+        document.querySelector("#cake").addEventListener("click", function() {
+            // Add a quick animation on click (for example, grow and shake)
+            gsap.to("#cake", {
+                scale: 1.2,
+                rotation: 15,
+                duration: 0.5,
+                ease: "power1.out",
+                onComplete: function() {
+                    // Redirect after animation is complete
+                    window.location.href = "p3.html";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
